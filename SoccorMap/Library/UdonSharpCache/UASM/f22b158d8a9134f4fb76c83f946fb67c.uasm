@@ -1,0 +1,408 @@
+.data_start
+
+    .export BlueGoal
+    .export RedGoal
+    .export Ball
+    .export RedTeamScore
+    .export BlueTeamScore
+    .export particlesRed
+    .export particlesBlue
+    .export BlueTeamScoreint
+    .export RedTeamScoreint
+    .export BallSpawn
+    .sync Cup, none
+
+    __refl_const_intnl_udonTypeID: %SystemInt64, null
+    __refl_const_intnl_udonTypeName: %SystemString, null
+    BallSpawn: %UnityEngineGameObject, null
+    Ball: %UnityEngineGameObject, null
+    RedGoal: %UnityEngineGameObject, null
+    BlueGoal: %UnityEngineGameObject, null
+    particlesBlue: %UnityEngineGameObjectArray, null
+    particlesRed: %UnityEngineGameObjectArray, null
+    RedTeamScoreint: %SystemInt32, null
+    BlueTeamScoreint: %SystemInt32, null
+    BlueTeamScore: %UnityEngineUIText, null
+    RedTeamScore: %UnityEngineUIText, null
+    onTriggerEnterOther: %UnityEngineCollider, null
+    Cup: %SystemInt32, null
+    Ball_Spawn: %UnityEngineVector3, null
+    __0_this_intnl_Soccor: %VRCUdonUdonBehaviour, this
+    __0_mp_other_Collider: %UnityEngineCollider, null
+    __1_obj_GameObject: %UnityEngineGameObject, null
+    __0_obj_GameObject: %UnityEngineGameObject, null
+    __1_const_intnl_SystemBoolean: %SystemBoolean, null
+    __0_const_intnl_SystemBoolean: %SystemBoolean, null
+    __1_const_intnl_SystemInt32: %SystemInt32, null
+    __0_const_intnl_SystemInt32: %SystemInt32, null
+    __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget: %VRCUdonCommonInterfacesNetworkEventTarget, null
+    __2_const_intnl_SystemString: %SystemString, null
+    __1_const_intnl_SystemString: %SystemString, null
+    __0_const_intnl_SystemString: %SystemString, null
+    __0_const_intnl_SystemType: %SystemType, null
+    __0_const_intnl_SystemUInt32: %SystemUInt32, null
+    __3_intnl_SystemBoolean: %SystemBoolean, null
+    __2_intnl_SystemBoolean: %SystemBoolean, null
+    __1_intnl_SystemBoolean: %SystemBoolean, null
+    __0_intnl_SystemBoolean: %SystemBoolean, null
+    __5_intnl_SystemInt32: %SystemInt32, null
+    __4_intnl_SystemInt32: %SystemInt32, null
+    __3_intnl_SystemInt32: %SystemInt32, null
+    __2_intnl_SystemInt32: %SystemInt32, null
+    __1_intnl_SystemInt32: %SystemInt32, null
+    __0_intnl_SystemInt32: %SystemInt32, null
+    __0_intnl_UnityEngineRigidbody: %UnityEngineRigidbody, null
+    __1_intnl_SystemString: %SystemString, null
+    __0_intnl_SystemString: %SystemString, null
+    __8_intnl_UnityEngineTransform: %UnityEngineTransform, null
+    __7_intnl_UnityEngineTransform: %UnityEngineTransform, null
+    __6_intnl_UnityEngineTransform: %UnityEngineTransform, null
+    __5_intnl_UnityEngineTransform: %UnityEngineTransform, null
+    __4_intnl_UnityEngineTransform: %UnityEngineTransform, null
+    __3_intnl_UnityEngineTransform: %UnityEngineTransform, null
+    __2_intnl_UnityEngineTransform: %UnityEngineTransform, null
+    __1_intnl_UnityEngineTransform: %UnityEngineTransform, null
+    __0_intnl_UnityEngineTransform: %UnityEngineTransform, null
+    __0_intnl_returnTarget_UInt32: %SystemUInt32, null
+    __0_intnl_UnityEngineVector3: %UnityEngineVector3, null
+    __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
+
+.data_end
+
+        
+         #  using UdonSharp;
+        
+         #  using UnityEngine;
+        
+         #  using UnityEngine.UI;
+        
+         #  using VRC.SDKBase;
+        
+         #  using VRC.Udon;
+        
+         #  using System.Collections;
+        
+         #  public class Soccor : UdonSharpBehaviour
+.code_start
+        
+         #  public GameObject BlueGoal;
+        
+         #  public GameObject RedGoal;
+        
+         #  public GameObject Ball;
+        
+         #  public Text RedTeamScore;
+        
+         #  public Text BlueTeamScore;
+        
+         #  public GameObject[] particlesRed;
+        
+         #  public GameObject[] particlesBlue;
+        
+         #  [UdonSynced]private int Cup;
+        
+         #  public int BlueTeamScoreint = 0;
+        
+         #  public int RedTeamScoreint = 0;
+        
+         #  private void OnTriggerEnter(Collider other)
+    .export _onTriggerEnter
+        
+    _onTriggerEnter:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, onTriggerEnterOther
+        PUSH, __0_mp_other_Collider
+        COPY
+        
+         #  {
+        
+         #  if (other.transform.parent == BlueGoal.transform)
+        PUSH, __0_mp_other_Collider
+        PUSH, __0_intnl_UnityEngineTransform
+        EXTERN, "UnityEngineCollider.__get_transform__UnityEngineTransform"
+        PUSH, __0_intnl_UnityEngineTransform
+        PUSH, __1_intnl_UnityEngineTransform
+        EXTERN, "UnityEngineTransform.__get_parent__UnityEngineTransform"
+        PUSH, BlueGoal
+        PUSH, __2_intnl_UnityEngineTransform
+        EXTERN, "UnityEngineGameObject.__get_transform__UnityEngineTransform"
+        PUSH, __1_intnl_UnityEngineTransform
+        PUSH, __2_intnl_UnityEngineTransform
+        PUSH, __0_intnl_SystemBoolean
+        EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
+        PUSH, __0_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000000D4
+        
+         #  {
+        
+         #  SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "RespawnBall");
+        PUSH, __0_this_intnl_Soccor
+        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget
+        PUSH, __0_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid"
+        
+         #  SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "RedScored");
+        PUSH, __0_this_intnl_Soccor
+        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget
+        PUSH, __1_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid"
+        
+         #  if (other.transform.parent == RedGoal.transform)
+        PUSH, __0_mp_other_Collider
+        PUSH, __3_intnl_UnityEngineTransform
+        EXTERN, "UnityEngineCollider.__get_transform__UnityEngineTransform"
+        PUSH, __3_intnl_UnityEngineTransform
+        PUSH, __4_intnl_UnityEngineTransform
+        EXTERN, "UnityEngineTransform.__get_parent__UnityEngineTransform"
+        PUSH, RedGoal
+        PUSH, __5_intnl_UnityEngineTransform
+        EXTERN, "UnityEngineGameObject.__get_transform__UnityEngineTransform"
+        PUSH, __4_intnl_UnityEngineTransform
+        PUSH, __5_intnl_UnityEngineTransform
+        PUSH, __1_intnl_SystemBoolean
+        EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
+        PUSH, __1_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000018C
+        
+         #  {
+        
+         #  SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "RespawnBall");
+        PUSH, __0_this_intnl_Soccor
+        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget
+        PUSH, __0_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid"
+        
+         #  SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, "BlueScored");
+        PUSH, __0_this_intnl_Soccor
+        PUSH, __0_const_intnl_VRCUdonCommonInterfacesNetworkEventTarget
+        PUSH, __2_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public GameObject BallSpawn;
+        
+         #  private Vector3 Ball_Spawn;
+        
+         #  public void RedScored()
+    .export RedScored
+        
+    RedScored:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  RedTeamScoreint++;
+        PUSH, RedTeamScoreint
+        PUSH, __0_intnl_SystemInt32
+        COPY
+        PUSH, RedTeamScoreint
+        PUSH, __0_const_intnl_SystemInt32
+        PUSH, RedTeamScoreint
+        EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
+        
+         #  RedTeamScore.text = RedTeamScoreint.ToString();
+        PUSH, RedTeamScoreint
+        PUSH, __0_intnl_SystemString
+        EXTERN, "SystemInt32.__ToString__SystemString"
+        PUSH, RedTeamScore
+        PUSH, __0_intnl_SystemString
+        EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void BlueScored()
+    .export BlueScored
+        
+    BlueScored:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  BlueTeamScoreint++;
+        PUSH, BlueTeamScoreint
+        PUSH, __1_intnl_SystemInt32
+        COPY
+        PUSH, BlueTeamScoreint
+        PUSH, __0_const_intnl_SystemInt32
+        PUSH, BlueTeamScoreint
+        EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
+        
+         #  BlueTeamScore.text = RedTeamScoreint.ToString();
+        PUSH, RedTeamScoreint
+        PUSH, __1_intnl_SystemString
+        EXTERN, "SystemInt32.__ToString__SystemString"
+        PUSH, BlueTeamScore
+        PUSH, __1_intnl_SystemString
+        EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  private void Start()
+    .export _start
+        
+    _start:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  Ball_Spawn = BallSpawn.transform.position;
+        PUSH, BallSpawn
+        PUSH, __6_intnl_UnityEngineTransform
+        EXTERN, "UnityEngineGameObject.__get_transform__UnityEngineTransform"
+        PUSH, __6_intnl_UnityEngineTransform
+        PUSH, Ball_Spawn
+        EXTERN, "UnityEngineTransform.__get_position__UnityEngineVector3"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void RespawnBall()
+    .export RespawnBall
+        
+    RespawnBall:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  Networking.SetOwner(Networking.LocalPlayer, Ball);
+        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi
+        EXTERN, "VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi"
+        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi
+        PUSH, Ball
+        EXTERN, "VRCSDKBaseNetworking.__SetOwner__VRCSDKBaseVRCPlayerApi_UnityEngineGameObject__SystemVoid"
+        
+         #  Ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        PUSH, Ball
+        PUSH, __7_intnl_UnityEngineTransform
+        EXTERN, "UnityEngineGameObject.__get_transform__UnityEngineTransform"
+        PUSH, __7_intnl_UnityEngineTransform
+        PUSH, __0_const_intnl_SystemType
+        PUSH, __0_intnl_UnityEngineRigidbody
+        EXTERN, "UnityEngineRigidbody.__GetComponent__T"
+        PUSH, __0_intnl_UnityEngineVector3
+        EXTERN, "UnityEngineVector3.__get_zero__UnityEngineVector3"
+        PUSH, __0_intnl_UnityEngineRigidbody
+        PUSH, __0_intnl_UnityEngineVector3
+        EXTERN, "UnityEngineRigidbody.__set_velocity__UnityEngineVector3__SystemVoid"
+        
+         #  Ball.transform.position = Ball_Spawn;
+        PUSH, Ball
+        PUSH, __8_intnl_UnityEngineTransform
+        EXTERN, "UnityEngineGameObject.__get_transform__UnityEngineTransform"
+        PUSH, __8_intnl_UnityEngineTransform
+        PUSH, Ball_Spawn
+        EXTERN, "UnityEngineTransform.__set_position__UnityEngineVector3__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void fireEffectsBlue()
+    .export fireEffectsBlue
+        
+    fireEffectsBlue:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  foreach (GameObject obj in particlesBlue)
+        PUSH, __1_const_intnl_SystemInt32
+        PUSH, __2_intnl_SystemInt32
+        COPY
+        PUSH, particlesBlue
+        PUSH, __3_intnl_SystemInt32
+        EXTERN, "UnityEngineGameObjectArray.__get_Length__SystemInt32"
+        PUSH, __2_intnl_SystemInt32
+        PUSH, __3_intnl_SystemInt32
+        PUSH, __2_intnl_SystemBoolean
+        EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
+        PUSH, __2_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000049C
+        PUSH, particlesBlue
+        PUSH, __2_intnl_SystemInt32
+        PUSH, __0_obj_GameObject
+        EXTERN, "SystemObjectArray.__Get__SystemInt32__SystemObject"
+        
+         #  {
+        
+         #  obj.SetActive(false);
+        PUSH, __0_obj_GameObject
+        PUSH, __0_const_intnl_SystemBoolean
+        EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
+        
+         #  obj.SetActive(true);
+        PUSH, __0_obj_GameObject
+        PUSH, __1_const_intnl_SystemBoolean
+        EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
+        PUSH, __2_intnl_SystemInt32
+        PUSH, __0_const_intnl_SystemInt32
+        PUSH, __2_intnl_SystemInt32
+        EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
+        JUMP, 0x000003F4
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void fireEffectsRed()
+    .export fireEffectsRed
+        
+    fireEffectsRed:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  foreach (GameObject obj in particlesRed)
+        PUSH, __1_const_intnl_SystemInt32
+        PUSH, __4_intnl_SystemInt32
+        COPY
+        PUSH, particlesRed
+        PUSH, __5_intnl_SystemInt32
+        EXTERN, "UnityEngineGameObjectArray.__get_Length__SystemInt32"
+        PUSH, __4_intnl_SystemInt32
+        PUSH, __5_intnl_SystemInt32
+        PUSH, __3_intnl_SystemBoolean
+        EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
+        PUSH, __3_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000058C
+        PUSH, particlesRed
+        PUSH, __4_intnl_SystemInt32
+        PUSH, __1_obj_GameObject
+        EXTERN, "SystemObjectArray.__Get__SystemInt32__SystemObject"
+        
+         #  {
+        
+         #  obj.SetActive(false);
+        PUSH, __1_obj_GameObject
+        PUSH, __0_const_intnl_SystemBoolean
+        EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
+        
+         #  obj.SetActive(true);
+        PUSH, __1_obj_GameObject
+        PUSH, __1_const_intnl_SystemBoolean
+        EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
+        PUSH, __4_intnl_SystemInt32
+        PUSH, __0_const_intnl_SystemInt32
+        PUSH, __4_intnl_SystemInt32
+        EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
+        JUMP, 0x000004E4
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+.code_end

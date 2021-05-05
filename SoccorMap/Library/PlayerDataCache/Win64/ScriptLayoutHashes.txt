@@ -1,0 +1,20 @@
+Win64
+PlayerPath?
+C:/Users/liamt/AppData/Local/Temp/DefaultCompany/SoccorMap/scene-standalonewindows64-samplescene.vrcw
+SceneListBegin?
+Assets/Main/Scenes/SampleScene.unity
+SceneListEnd?
+71e41e59a9b9d3d35a3f2005e6919d13 Assembly-CSharp.dll:.destroyMe
+507174d46dacbc5fe45e28485db5dd1e UnityEngine.UI.dll:UnityEngine.UI.Button
+4bc4346a71a8df53a6b106f68ef3a190 UnityEngine.UI.dll:UnityEngine.UI.CanvasScaler
+ae83e830e7a90c0aff918c4c2e520825 UnityEngine.UI.dll:UnityEngine.UI.GraphicRaycaster
+e6baf3ef68d60bd0901dfb91c02bc1c3 UnityEngine.UI.dll:UnityEngine.UI.Image
+aa165095bcf0f4d99594ea33df01c81b UnityEngine.UI.dll:UnityEngine.UI.Slider
+72712369a7c681ad84fc255a5ec0b333 UnityEngine.UI.dll:UnityEngine.UI.Text
+bad0f5a58d4b55ed1442379677ba2587 VRC.Udon.dll:VRC.Udon.ProgramSources.SerializedUdonProgramAsset
+3614bae5f2ee7232eea55e930d1eb42d VRCSDK3.dll:VRC.SDK3.Components.VRCPickup
+10480eec36be4b6bdd6d8cc2b035dc73 VRCSDK3.dll:VRC.SDK3.Components.VRCSceneDescriptor
+7f9fad37fadafd79f80625e7955b2849 VRCSDK3.dll:VRC.SDK3.Components.VRCStation
+71bb6a6b6c8f052f948db64c7dd3ca4f VRCSDK3.dll:VRC.SDK3.Components.VRCUiShape
+98802acfe9980994b612b48375d6584f VRC.Udon.dll:VRC.Udon.UdonBehaviour
+5db75d920ffb77b623077e95eb9ecdb8 VRCCore-Editor.dll:VRC.Core.PipelineManager
